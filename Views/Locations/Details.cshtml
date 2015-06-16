@@ -1,0 +1,35 @@
+@model MyApp.Models.Location
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Location</legend>
+
+    <div class="display-label">CreatedBy</div>
+    <div class="display-field">@Model.CreatedBy</div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">@Model.Description</div>
+
+    <div class="display-label">LocationDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.LocationDate)</div>
+
+    <div class="display-label">LocationName</div>
+    <div class="display-field">@Model.LocationName</div>
+
+    <div class="display-label">Amount</div>
+    <div class="display-field">@String.Format("{0:F}", Model.Amount)</div>
+
+    <div class="display-label">TransactionBy</div>
+    <div class="display-field">@Model.TransactionBy</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.LocationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

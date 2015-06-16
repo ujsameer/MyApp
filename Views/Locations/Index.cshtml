@@ -1,0 +1,65 @@
+@model IEnumerable<MyApp.Models.Location>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            CreatedBy
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            LocationDate
+        </th>
+        <th>
+            LocationName
+        </th>
+        <th>
+            Amount
+        </th>
+        <th>
+            TransactionBy
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LocationId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LocationId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LocationId })
+        </td>
+        <td>
+			@item.CreatedBy
+        </td>
+        <td>
+			@item.Description
+        </td>
+        <td>
+			@String.Format("{0:g}", item.LocationDate)
+        </td>
+        <td>
+			@item.LocationName
+        </td>
+        <td>
+			@String.Format("{0:F}", item.Amount)
+        </td>
+        <td>
+			@item.TransactionBy
+        </td>
+    </tr>
+}
+
+</table>
+
+
